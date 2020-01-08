@@ -1,11 +1,11 @@
 import React from 'react'
-import Styles from  '../css/styles.css'
+import styles from  '../css/styles.module.css'
 
 const NewsListItem = ({item}) => {
 
 
     return (
-        <div className={Styles.news_item}>
+        <div className={styles.news_item}>
             <h3>{item.title}</h3>
             <div>{item.feed}</div>     
         </div>

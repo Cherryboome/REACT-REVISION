@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import '../css/styles.css'
+import styles from '../css/styles.module.css'
 
 class Header extends Component {
     state = {
@@ -14,7 +14,7 @@ inputChangeHandler = (event) => {
     render() {
         return (
             <header>
-                <div className='logo'>Logo</div>
+                <div className={styles.logo}>Logo</div>
                 <input type="text" onChange={this.inputChangeHandler}/>
             </header>
         )
