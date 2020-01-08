@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    background: #03a9f4;
+    text-align: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Rakkas', 'cursive';
+    cursor: pointer;
+}
+
+header input {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.news_item {
+    padding: 20px;
+    border-bottom: 1px solid grey;
+}
