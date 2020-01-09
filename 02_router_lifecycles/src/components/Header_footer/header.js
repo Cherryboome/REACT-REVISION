@@ -8,6 +8,7 @@ const Header = () => {
             <div><NavLink to='/posts'>Posts</NavLink></div>
             <div><NavLink to='/profile'>Profile</NavLink></div>
             <div><NavLink to='/life'>Lifecycle methods</NavLink></div>
+            <div><NavLink to='/conditional'>Conditional</NavLink></div>
             <hr />
         </header>
     )

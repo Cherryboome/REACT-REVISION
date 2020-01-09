@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-class LifeCycles extends Component {
+class LifeCycles extends PureComponent {
   // 1. Get default props
 
   // 2. Set default state
@@ -27,12 +27,12 @@ class LifeCycles extends Component {
       console.log('AFTER UPDATE')
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-      if(nextState.title === 'React outdated') {
-          return false
-      }
-      return true
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+  //     if(nextState.title === 'React outdated') {
+  //         return false
+  //     }
+  //     return true
+  // }
 
   UNSAFE_componentWillReceiveProps(){
       console.log('BEFORE RECEIVING PROPS')

@@ -9,6 +9,7 @@ import Header from './components/Header_footer/header'
 import PostItem from './components/post_item'
 import PageNotFound from './components/page_not_found'
 import LifeCycles from './components/life_cycles'
+import Conditional from './components/conditional'
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
            <Route path='/profile' component={Profile} />
            <Route path='/posts' component={Posts} />
            <Route path='/life' component={LifeCycles} />
+           <Route path='/conditional' component={Conditional} />
            <Route path='/' exact component={Home} />
            <Route component={PageNotFound} />
         </Switch>
