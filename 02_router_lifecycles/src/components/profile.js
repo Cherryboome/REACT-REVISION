@@ -1,14 +1,23 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const Profile = (props) => {
-    return (
-        <div>
-            <Link to={{
-                pathname: `${props.match.url}/posts`
-            }}>take me to /profile/posts</Link>
-        </div>
-    )
+import Card from '../hoc/card'
+import Auth from '../hoc/auth'
+
+const Profile = props => {
+  return (
+    <Auth>
+      <Card>
+        <Link
+          to={{
+            pathname: `${props.match.url}/posts`
+          }}
+        >
+          take me to /profile/posts
+        </Link>
+      </Card>
+    </Auth>
+  )
 }
 
 export default Profile

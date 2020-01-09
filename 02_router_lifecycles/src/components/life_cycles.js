@@ -9,22 +9,22 @@ class LifeCycles extends PureComponent {
   }
 
   // 5. After jsx
-  componentDidMount(){
+  componentDidMount() {
     console.log('5. After jsx')
     document.querySelector('h3').style.color = 'blue'
   }
 
   // 3. Before render
-  UNSAFE_componentWillMount(){
+  UNSAFE_componentWillMount() {
     console.log('3. Before render')
   }
 
-  UNSAFE_componentWillUpdate(){
-      console.log('BEFORE UPDATE')
+  UNSAFE_componentWillUpdate() {
+    console.log('BEFORE UPDATE')
   }
 
-  componentDidUpdate(){
-      console.log('AFTER UPDATE')
+  componentDidUpdate() {
+    console.log('AFTER UPDATE')
   }
 
   // shouldComponentUpdate(nextProps, nextState){
@@ -34,11 +34,11 @@ class LifeCycles extends PureComponent {
   //     return true
   // }
 
-  UNSAFE_componentWillReceiveProps(){
-      console.log('BEFORE RECEIVING PROPS')
+  UNSAFE_componentWillReceiveProps() {
+    console.log('BEFORE RECEIVING PROPS')
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     console.log('UNMOUNTING')
   }
 
@@ -48,7 +48,20 @@ class LifeCycles extends PureComponent {
     return (
       <div>
         <h3>{this.state.title}</h3>
-        <div onClick={()=> this.setState({title: `${this.state.title === 'React Lifecycle methods' ? 'React outdated lifecycles' : 'React Lifecycle methods'}`})} style={{cursor: 'pointer'}}>CHANGE TITLE</div>
+        <div
+          onClick={() =>
+            this.setState({
+              title: `${
+                this.state.title === 'React Lifecycle methods'
+                  ? 'React outdated lifecycles'
+                  : 'React Lifecycle methods'
+              }`
+            })
+          }
+          style={{ cursor: 'pointer' }}
+        >
+          CHANGE TITLE
+        </div>
       </div>
     )
   }
