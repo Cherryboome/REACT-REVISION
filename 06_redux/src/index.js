@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 
-import App from './app.js'
+import App from './containers/app.js'
 import reducers from './reducers'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore)
