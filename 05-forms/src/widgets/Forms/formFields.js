@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormFields = ({ formData, change }) => {
+const FormFields = ({ formData, change, onblur }) => {
   const renderFields = () => {
     let formArray = []
 
@@ -24,12 +24,54 @@ const FormFields = ({ formData, change }) => {
     return show ? <label>{label}</label> : null
   }
 
-  const changeHandler = (event, id) => {
+  const changeHandler = (event, id, blur) => {
     const newState = formData
-
     newState[id].value = event.target.value
 
+    if (blur) {
+      let validData = validate(newState[id])
+      newState[id].valid = validData[0]
+      newState[id].validationMessage = validData[1]
+    }
+
+    newState[id].touched = blur
+
     change(newState)
+  }
+
+  const validate = element => {
+    let error = [true, '']
+
+    if (element.validation.minLength) {
+      const valid = element.value.length >= element.validation.minLength
+      const message = `${
+        !valid
+          ? 'Must be greater than ' +
+            element.validation.minLength +
+            ' characters'
+          : ''
+      }`
+
+      error = !valid ? [valid, message] : error
+    }
+
+    if (element.validation.required) {
+      const valid = element.value.trim() !== ''
+      const message = `${!valid ? 'This field is required' : ''}`
+
+      error = !valid ? [valid, message] : error
+    }
+
+    return error
+  }
+
+  const showValidation = data => {
+    let errorMessage = null
+
+    if (data.validation && !data.valid) {
+      errorMessage = <div className='label_error'>{data.validationMessage}</div>
+    }
+    return errorMessage
   }
 
   const renderTemplate = data => {
@@ -44,8 +86,10 @@ const FormFields = ({ formData, change }) => {
             <input
               {...values.config}
               value={values.value}
-              onChange={event => changeHandler(event, data.id)}
+              onBlur={event => changeHandler(event, data.id, true)}
+              onChange={event => changeHandler(event, data.id, false)}
             />
+            {showValidation(values)}
           </div>
         )
         break
